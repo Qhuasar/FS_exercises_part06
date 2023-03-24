@@ -55,15 +55,10 @@ export const addAnecdote = (anecdote) => {
 
 const anecdoteSlice = createSlice({
   name: "anecdotes",
-  initialState,
+  initialState: [],
   reducers: {
     addAnecdote(state, action) {
-      const newAnecdote = {
-        content: action.payload,
-        id: getId(),
-        votes: 0,
-      }
-      return state.concat(newAnecdote)
+      return state.concat(action.payload)
     },
     addVote(state, action) {
       const updatedState = state.map((anecdote) => {
@@ -75,5 +70,6 @@ const anecdoteSlice = createSlice({
     },
   },
 })
+
 export const { addAnecdote, addVote } = anecdoteSlice.actions
 export default anecdoteSlice.reducer
