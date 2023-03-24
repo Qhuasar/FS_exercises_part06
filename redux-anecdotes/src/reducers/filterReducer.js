@@ -1,4 +1,5 @@
-export const filterAnecdotes = (filter) => {
+import { createSlice } from "@reduxjs/toolkit"
+/* export const filterAnecdotes = (filter) => {
   return {
     type: "FILTER_ANECDOTES",
     payload: {
@@ -14,6 +15,21 @@ const filterReducer = (state = "", action) => {
     default:
       return state
   }
-}
+} 
 
 export default filterReducer
+
+*/
+
+const filterSlice = createSlice({
+  name: "filter",
+  initialState: "",
+  reducers: {
+    filterAnecdotes(state, action) {
+      return action.payload
+    },
+  },
+})
+
+export default filterSlice.reducer
+export const { filterAnecdotes } = filterSlice.actions
